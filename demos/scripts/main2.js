@@ -62,6 +62,7 @@ const bestRetirementPlaces = [
     country: "Spain",
     costOfLiving: "Moderate",
     climate: "Mediterranean",
+    highlights: "Sunny beaches, rich history, lively culture",
   },
   {
     city: "Dubrovnik",
@@ -99,3 +100,61 @@ for (const place of bestRetirementPlaces) {
   td5.innerText = place.highlights;
   tr.appendChild(td5);
 }
+
+const countryes = [
+  "Croatia",
+  "Spain",
+  "Malaysia",
+  "New Zealand",
+  "Colombia",
+  "Moderate",
+  "Thailand",
+  "Portugal",
+  "Mexico",
+];
+
+const countriesDropdown = document.querySelector("#countriesDropdown");
+
+for (const country of countryes) {
+  let option = document.createElement("option");
+  option.value = country;
+  option.innerText = country;
+
+  countriesDropdown.appendChild(option);
+}
+
+function filterBycountry() {
+  let selectedcountry = countriesDropdown.value;
+  let bestRetirementPlaces = bestRetirementPlaces.filter((place) => (place.country == selectedcountry));
+  placesTBody.innerHTML = "";
+
+  for (const place of bestRetirementPlaces) {
+    let tr = document.createElement("tr");
+    placesTBody.appendChild(tr);
+
+    let td1 = document.createElement("td");
+    td1.innerText = place.city;
+    tr.appendChild(td1);
+
+    let td2 = document.createElement("td");
+    td2.innerText = place.country;
+    tr.appendChild(td2);
+
+    let td3 = document.createElement("td");
+    td3.innerText = place.costOfLiving;
+    tr.appendChild(td3);
+
+    let td4 = document.createElement("td");
+    td4.innerText = place.climate;
+    tr.appendChild(td4);
+
+    let td5 = document.createElement("td");
+    td5.innerText = place.highlights;
+    tr.appendChild(td5);
+  }
+}
+
+
+
+
+
